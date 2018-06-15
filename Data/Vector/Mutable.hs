@@ -185,7 +185,10 @@ loopM !n k = let
   in go 0
 
 uninitialised :: a
-uninitialised = error "Data.Vector.Mutable: uninitialised element"
+uninitialised = error $
+  "Data.Vector.Mutable: uninitialised element. " ++
+  "If you run into this using Data.Compact, this is a known problem with Vectors constructed using fromList. " ++
+  "Please use fromListN instead."
 
 -- Length information
 -- ------------------
